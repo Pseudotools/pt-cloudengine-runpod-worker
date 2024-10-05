@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   comfyui:
-    image: pseudotools/runpod-worker:sdxl
+    image: pseudotools/runpod-worker:base.00
     container_name: comfyui-worker
     environment:
       - NVIDIA_VISIBLE_DEVICES=all
