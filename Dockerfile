@@ -62,8 +62,11 @@ RUN git clone https://github.com/Pseudotools/ComfyUI_IPAdapter_plus.git custom_n
 # Stage 3: Final image
 FROM base as final
 
-# Copy models from stage 2 to the final image
+# Copy models from stage 2 to the final image (even if we didn't download any)
 COPY --from=downloader /comfyui/models /comfyui/models
+
+# Copy custom_nodes from stage 2 to the final image
+COPY --from=downloader /comfyui/custom_nodes /comfyui/custom_nodes
 
 # Start the container
 CMD /start.sh
